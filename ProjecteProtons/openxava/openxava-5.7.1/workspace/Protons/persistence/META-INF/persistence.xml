@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+             
+    <!-- Tomcat + Hypersonic -->
+    <!-- persistence-unit name="default">
+    	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    	<non-jta-data-source>java://comp/env/jdbc/ProtonsDS</non-jta-data-source>
+    	<class>org.openxava.session.GalleryImage</class>
+    	<class>org.openxava.web.editors.DiscussionComment</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.connection.release_mode" value="after_transaction"/>
+        </properties>
+    </persistence-unit-->    
+    
+    <persistence-unit name="default">
+    	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>app.appslab.example.Exemple</class>        
+        <properties>
+            <!-- server=92.222.27.83;uid=m2-agonzalez;pwd=47111651S;database=m2_agonzalez;SslMode=None;");
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://92.222.27.83:3306/m2_agonzalez"/>            
+            <property name="javax.persistence.jdbc.user" value="m2-agonzalez"/>
+            <property name="javax.persistence.jdbc.password" value="47111651S"/> -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/protons"/>            
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="root"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>      
+            <property name="javax.persistence.schema-generation.database.action" value="none"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>    
+        
+    <!-- JBoss + Hypersonic 
+    <persistence-unit name="default">
+    	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    	<non-jta-data-source>java:/ProtonsDS</non-jta-data-source>
+    	<class>org.openxava.session.GalleryImage</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.connection.release_mode" value="after_transaction"/>
+        </properties>
+    </persistence-unit>    
+    -->
+    
+    <!-- WebSphere + AS/400 
+    <persistence-unit name="default">
+    	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    	<non-jta-data-source>jdbc/ProtonsDS</non-jta-data-source>
+    	<class>org.openxava.session.GalleryImage</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.DB2400Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.connection.release_mode" value="after_transaction"/>
+        </properties>
+    </persistence-unit>
+    -->
+    
+    <!-- JUnit Hypersonic -->
+    <persistence-unit name="junit">
+    	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    	<class>org.openxava.web.editors.DiscussionComment</class>
+        <properties>
+			<property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+			<property name="hibernate.connection.release_mode" value="after_transaction"/>
+			<property name="hibernate.connection.url" value="jdbc:hsqldb:hsql://localhost:1666"/>
+        </properties>
+    </persistence-unit>    
+    
+</persistence>
